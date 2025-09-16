@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setWishList } from "../redux/state";
 
+// import { getListingById } from "../services/ListingsService.js";
+
+
 const ListingCard = ({
 	listingId,
 	creator,
@@ -46,6 +49,7 @@ const ListingCard = ({
 		}
 	};
 
+
 	return (
 		<div className="relative cursor-pointer p-2 rounded-lg hover:shadow-md transition" onClick={() => navigate(`/properties/${listingId}`)}>
 			{/* Slider */}
@@ -54,8 +58,8 @@ const ListingCard = ({
 					{listingPhotoPaths?.map((photo, index) => (
 						<div key={index} className="relative flex-0 w-full h-[270px] flex items-center">
 							<img
-								src={`http://localhost:3001/${photo?.replace(/^.*\/public\//, "")}`}
-								alt={`photo ${index + 1}`}
+								src={`http://localhost:3001/${photo}`}
+								alt={"photo"}
 								className="w-full h-full object-cover brightness-90"
 							/>
 							<div
